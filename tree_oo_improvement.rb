@@ -4,12 +4,12 @@ class Div
     @left = left
   end
 
-  def run
-    @left.run / @right.run
+  def result
+    @left.result / @right.result
   end
 
-  def print
-    "(#{@left.print} ÷ #{@right.print})"
+  def to_s
+    "(#{@left.to_s} ÷ #{@right.to_s})"
   end
 end
 
@@ -19,12 +19,12 @@ class Add
     @left = left
   end
 
-  def run
-    @left.run + @right.run
+  def result
+    @left.result + @right.result
   end
 
-  def print
-    "(#{@left.print} + #{@right.print})"
+  def to_s
+    "(#{@left.to_s} + #{@right.to_s})"
   end
 end
 class Sub
@@ -33,12 +33,12 @@ class Sub
     @left = left
   end
   
-  def run
-    @left.run - @right.run
+  def result
+    @left.result - @right.result
   end
 
-  def print
-    "(#{@left.print} - #{@right.print})"
+  def to_s
+    "(#{@left.to_s} - #{@right.to_s})"
   end
 end
 class Mul
@@ -47,12 +47,12 @@ class Mul
     @left = left
   end
 
-  def run
-    @left.run * @right.run
+  def result
+    @left.result * @right.result
   end
 
-  def print 
-    "(#{@left.print} x #{@right.print})"
+  def to_s 
+    "(#{@left.to_s} x #{@right.to_s})"
   end
 end
 class Num 
@@ -60,11 +60,11 @@ class Num
     @value = value
   end
 
-  def run
+  def result
     @value
   end
 
-  def print 
+  def to_s 
     @value
   end
 
@@ -80,8 +80,8 @@ def assert_equal(expected, actual)
 end
 
 tree = Div.new(Add.new(Num.new(7),Mul.new(Sub.new(Num.new(3),Num.new(2)),Num.new(5))), Num.new(6))
-assert_equal "((7 + ((3 - 2) x 5)) ÷ 6)", tree.print
-assert_equal 2, tree.run
+assert_equal "((7 + ((3 - 2) x 5)) ÷ 6)", tree.to_s
+assert_equal 2, tree.result
 
 
 
